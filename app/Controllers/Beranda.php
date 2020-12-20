@@ -8,4 +8,8 @@ class Beranda extends BaseController
     {
         return view('home');
     }
+    function about()
+    {
+        return view('about');
+    }
 }
