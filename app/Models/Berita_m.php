@@ -13,4 +13,22 @@ class Berita_m extends Model
         $query = $builder->get()->getResultArray();
         return $query;
     }
+
+    function save_data($judul, $isi)
+    {
+        $db = \config\Database::connect();
+        $data = array(
+            'Judul' => $judul,
+            'Isi' => $isi
+        );
+        $query = $this->db->table('berita')->insert($data);
+        return $query;
+    }
+    function delete_data($id)
+    {
+        $query = $this->db->table('berita')->delete(array(
+            'IdBerita' => $id
+        ));
+        return $query;
+    }
 }
